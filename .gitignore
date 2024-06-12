@@ -1,2 +1,4 @@
 *.pbix
 _*
+*.jar
+.antlr/*
