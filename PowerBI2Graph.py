@@ -132,10 +132,9 @@ def get_edges_from_tables(nodes, tables):
                 token_set = set()
                 for t in tokens:
                     if t.type == PowerQueryLexer.IDENTIFIER and t.text not in token_set:
-                        for n in nodes : 
-                            if n == t.text:
-                                edges.append((n, table["name"]))
-                                token_set.add(t.text)
+                        if t.text in nodes:
+                            edges.append((t.text, table["name"]))
+                            token_set.add(t.text)
     return edges
 
 def remove_forbiden_characters(graph):
